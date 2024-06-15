@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
+const routes = require('./router/routes');
+
 const app = express();
 
 // Middleware Definitions
@@ -21,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev')); // Logging middleware
 
 // Routes
+app.use('/', routes);
 
 // Error Handling Middleware
 app.use(errorMiddleware);
