@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev')); // Logging middleware
 
 // Routes
-app.use('/', routes);
+app.use('/api', routes);
 
 // Error Handling Middleware
 app.use(errorMiddleware);
