@@ -1,7 +1,7 @@
 const request = require('superagent');
 const db = require('../model/pg');
 
-const CUSTOMER_ENDPOINT = 'http://woojin_customer:3000';
+const CUSTOMER_ENDPOINT = 'http://woojin_customer:3000/api';
 
 module.exports = {
     /** get order history */
