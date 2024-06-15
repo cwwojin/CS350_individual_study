@@ -30,10 +30,7 @@ router
     .get(
         // GET : get a user by id
         '/:id',
-        [
-            param('id').exists().isInt({min: 1}),
-            validatorChecker,
-        ],
+        [param('id').exists().isInt({ min: 1 }), validatorChecker],
         controller.getUserById
     )
     .post(
@@ -45,7 +42,6 @@ router
             validatorChecker,
         ],
         controller.createUser
-    )
-;
+    );
 
 module.exports = router;

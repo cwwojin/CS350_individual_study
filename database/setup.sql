@@ -24,6 +24,7 @@ CREATE TABLE "order"."order" (
   "product_id" integer not null,
   "amount" integer not null,
   "price" integer not null,
+  "status" boolean default true,
   "address" varchar(255) default '',
   "created_at" timestamp DEFAULT (current_timestamp),
   "updated_at" timestamp DEFAULT (current_timestamp)
@@ -62,3 +63,20 @@ $function$
 
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON "order".product FOR EACH row EXECUTE PROCEDURE "order".trigger_set_timestamp();
 CREATE TRIGGER set_timestamp BEFORE UPDATE ON "order"."order" FOR EACH row EXECUTE PROCEDURE "order".trigger_set_timestamp();
+
+-- SEEDER
+
+insert into "order".product ("name", price)
+	values ('product_01', 10000),
+		('product_02', 15000),
+		('product_03', 20000),
+		('product_04', 25000),
+		('product_05', 30000),
+		('product_06', 35000),
+		('product_07', 40000),
+		('product_08', 45000),
+		('product_09', 50000),
+		('product_10', 55000)
+;
+
+insert into customer."user" (user_name, address) values ('woojin.choi', '123, kaist-daero, Daejeon, Korea');

@@ -14,7 +14,7 @@ module.exports = {
         }
     },
     /** get user by id */
-    getUserById: async (req,res,next) => {
+    getUserById: async (req, res, next) => {
         try {
             const result = await service.getUserById(req.params.id);
             res.status(200).json({
@@ -26,7 +26,7 @@ module.exports = {
         }
     },
     /** create user */
-    createUser: async (req,res,next) => {
+    createUser: async (req, res, next) => {
         try {
             const result = await service.createUser(req.body);
             res.status(201).json({
@@ -37,5 +37,4 @@ module.exports = {
             next(err);
         }
     },
-
 };

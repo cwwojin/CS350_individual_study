@@ -14,8 +14,7 @@ module.exports = {
             text: `select * from customer."user" where id = $1;`,
             values: [id],
         });
-        if(!rows.length)
-            throw ({ status: 404, message: `No user with id = ${id}`});
+        if (!rows.length) throw { status: 404, message: `No user with id = ${id}` };
         return rows[0];
     },
     /** create user */
@@ -24,9 +23,7 @@ module.exports = {
             text: `insert into customer."user" (user_name, address) values ($1, $2) returning *;`,
             values: [args.userName, args.address],
         });
-        if(!rows.length)
-            throw ({ status: 404, message: `No resource was created`});
+        if (!rows.length) throw { status: 404, message: `No resource was created` };
         return rows[0];
     },
-
-}
+};

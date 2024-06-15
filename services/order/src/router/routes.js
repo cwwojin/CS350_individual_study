@@ -23,11 +23,8 @@ const router = Router();
 router
     .get(
         // GET : view order history
-        '/:id',
-        [
-            param('id').exists().isInt({min: 1}),
-            validatorChecker,
-        ],
+        '/history/:id',
+        [param('id').exists().isInt({ min: 1 }), validatorChecker],
         controller.getOrderHistory
     )
     .get(
@@ -39,9 +36,9 @@ router
         // POST : make an order
         '/',
         [
-            body('customerId').exists().isInt({min: 1}),
-            body('productId').exists().isInt({min: 1}),
-            body('amount').exists().isInt({min: 1}),
+            body('customerId').exists().isInt({ min: 1 }),
+            body('productId').exists().isInt({ min: 1 }),
+            body('amount').exists().isInt({ min: 1 }),
             body('address').optional().isString(),
             validatorChecker,
         ],
@@ -50,12 +47,11 @@ router
     .post(
         '/cancel',
         [
-            body('customerId').exists().isInt({min: 1}),
-            body('orderId').exists().isInt({min: 1}),
+            body('customerId').exists().isInt({ min: 1 }),
+            body('orderId').exists().isInt({ min: 1 }),
             validatorChecker,
         ],
         controller.cancelOrder
-    )
-;
+    );
 
 module.exports = router;
